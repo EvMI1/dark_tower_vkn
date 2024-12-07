@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма - Темная Башня</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function NameMessage()
+        {
+            const nameField = document.getElementById('name');
+            const message = document.getElementById('nameMessage');
+            if (nameField.value.trim() !== "") {
+                message.textContent = `Привет, ${nameField.value}! Спасибо за участие.`;
+                message.style.color = "green";
+            } else {
+                message.textContent = "";
+            }
+        }
+
+        function showAlert(event) 
+        {
+            alert("Форма успешно отправлена! Спасибо за участие.");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="logo.jpg" alt="Темная Башня" class="logo">
+        </a>
+        <h1>Анкета для поклонников</h1>
+    </header>
+
+    <main>
+        <h2>Анкета для поклонников серии</h2>
+        <div>
+            <img src="photo_2024-12-05_19-02-23.jpg" alt="Стрелок">
+        </div>
+        <form method="post" onsubmit="showSubmissionAlert(event)">
+            <!-- Текстовое поле -->
+            <label for="name">Ваше имя:</label><br>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required oninput="showNameMessage()"><br>
+            <span id="nameMessage"></span><br><br>
+
+            <!-- Переключатели -->
+            <p>Ваш любимый персонаж:</p>
+            <input type="radio" id="roland" name="character" value="roland">
+            <label for="roland">Роланд</label><br>
+            <input type="radio" id="jake" name="character" value="jake">
+            <label for="jake">Джейк</label><br>
+            <input type="radio" id="susannah" name="character" value="susannah">
+            <label for="susannah">Сюзанна</label><br><br>
+
+            <label for="book">Ваша любимая книга серии:</label><br>
+            <select id="book" name="book">
+                <option value="1">Стрелок</option>
+                <option value="2">Извлечение троих</option>
+                <option value="3">Бесплодные земли</option>
+                <option value="4">Колдун и кристалл</option>
+                <option value="5">Волки Кальи</option>
+                <option value="6">Песнь Сюзанны</option>
+                <option value="7">Темная Башня</option>
+            </select><br><br>
+
+            <label for="comments">Оставьте комментарий:</label><br>
+            <textarea id="comments" name="comments" rows="5" cols="40" placeholder="Поделитесь своими мыслями о серии..."></textarea><br><br>
+
+            <button type="submit" onclick="showAlert(event)">Отправить</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2024 Поклонники "Темной Башни"</p>
+    </footer>
+</body>
+</html>
